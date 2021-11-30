@@ -7,6 +7,13 @@ a,a:visited, a:focus{
     text-decoration: none;
     color: white;
 }
+a{
+    color: white;
+    filter: opacity(1)
+}
+a:hover{
+    filter: opacity(0.6);
+}
 main{
     height: calc(100vh - 80px);
     overflow: hidden;
@@ -28,18 +35,17 @@ nav.menù{
 .logo,
 ul li span,
 .info,
-hr{
+hr,
+.playlist{
     display:none;
 }
 .smalllogo,
 .top div ul li img{
     padding: 10px;
 }
-.playlist{
-    display: none;
-}
 .infomenu{
     width: 100%;
+    text-align: center;
 }
 .fa-user{
     font-size: 20px;
@@ -65,9 +71,10 @@ div.wrapper{
     overflow-y: scroll;
 }
 div.upgrader{
+    z-index: 2;
     width: calc(100% - 50px);
     height: 80px;
-    background-color: #080b12;
+    background-color: rgba(8,11,18,255);
     position: fixed;
     top: 0;
 }
@@ -124,7 +131,7 @@ div.listaplay{
     /* overflow-y: scroll; */
 }
 .musiclist{
-    width: 180px;
+    width: 190px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -152,7 +159,7 @@ div.listaplay{
     color: #797b80;
     margin: 10px 0;
 }
-/* FOOTER  */
+/* demonio del footerplayer */
 .playing{
     display: flex;
     direction: row;
@@ -161,13 +168,12 @@ div.listaplay{
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 90px;
+    height: 80px;
     width: 100%;
     background-color: #282828;
     z-index: 2;
     padding: 0 10px;
 }
-/* song-playing  */
     .song-playing{
         
         display: flex;
@@ -175,8 +181,7 @@ div.listaplay{
         align-items: center;
         justify-content: flex-start;
         width: 250px;
-        height: 45px;
-        
+        height: 45px;    
     }
     .song-playing>*{
         margin-right: 10px;
@@ -205,7 +210,6 @@ div.listaplay{
         font-size: 11px;
         margin: 2px;
     }
-/* action playing bar  */
     .actions-playing{
         display: flex;
         flex-direction: column;
@@ -244,7 +248,6 @@ div.listaplay{
         font-weight: 700;
         color: white;
     }
-     /* time/progress bar */
     .time-bar{
         height: 4px;
         width: 70%;
@@ -253,7 +256,6 @@ div.listaplay{
         border-radius: 20px 20px;
         filter: opacity(0.60);
     }
-    /* volume bar  */
     .volume-playing{
         width: 200px;
         height: 45px;
@@ -289,3 +291,61 @@ div.listaplay{
         border-radius: 20px 20px;
         filter: opacity(0.60);
     }
+    .musiclist a{
+        position: relative;
+    }
+    .fa-play-circle{
+        position: absolute;
+        font-size: 50px;
+        top: 38%;
+        right: 38%;
+        transform: translate(-50% -50%);
+        display: none;
+    }
+    .musiclist a:hover .fa-play-circle{
+        display: block;
+    }
+
+@media screen and (min-width: 576px){
+    .contenitore{
+        width: 130px;
+    }
+    section.contenitore2{
+        width: calc(100% - 130px);
+    }
+    div.upgrader{
+        z-index: 2;
+        width: calc(100% - 130px);
+    }
+    .logo,
+    ul li span,
+    .info,
+    hr,
+    .playlist{
+        display:block;
+    }
+    .smalllogo{
+        display: none;
+    }
+    .top div ul li img{
+        width: 30%;
+        padding: 0px;
+        display: inline;
+    }
+    .top div ul li a{
+        width: 100%;
+        padding: 5px;
+    }
+    .top div ul li a span{
+        display: inline;
+    }
+    li>a{
+        font-size: 12px;
+    }
+    .font16{
+        font-size: 16px;
+    }
+    .font12{
+        font-size: 12px;
+    }
+}
